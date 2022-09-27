@@ -1,0 +1,18 @@
+POST http://localhost:5000/users/signup
+Content-Type: application/json
+
+{
+    "name":"fevzi",
+    "email":"fevzi12222@gmail.com",
+    "password":"fevzi1"
+}
+
+###
+
+POST http://localhost:5000/users/signin
+Content-Type: application/json
+
+{
+    "email":"fevzi12222@gmail.com",
+    "password":"fevzi1"
+}
