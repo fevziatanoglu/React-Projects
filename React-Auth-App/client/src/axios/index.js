@@ -10,8 +10,14 @@ const HTTP = axios.create({
 //     await HTTP.post("/users/signin" , formData)
 // }
 
-export default async function login(formData){
+async function login(formData){
 
-   return  HTTP.post("/users/signin" , formData);
-    
+   return await HTTP.post("/users/signin" , formData);
 }
+
+async function register(formData){
+
+    return await HTTP.post("users/signup" , formData)
+}
+
+export {login , register};

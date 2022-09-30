@@ -3,14 +3,13 @@ import express from "express";
 import bcrypt from "bcryptjs";
 import User from "../models/userModel.js"
 
+
 const router = express.Router();
 
 // POST!! SIGNUP
 router.post("/signup", async (req, res) => {
 
     try {
-        console.log(req.body);
-
         // name password email degerlerini bodyiden al
         const { name, password, email } = req.body;
 
@@ -19,7 +18,7 @@ router.post("/signup", async (req, res) => {
 
         // isUserExist geri bir deger dondururse (yani ayni emailde baska bir kullanıcı varsa hata dondur)
         if (isUserExist) {
-            return res.status(400).json({ message: "user already exists." })
+            return res.status(400).json({ message: "User already exists." , });
         }
 
         // sifreyi hashle
@@ -36,36 +35,58 @@ router.post("/signup", async (req, res) => {
         })
 
         // olusturulan kullaniciyi dondur
-        return res.status(201).json(createdUser);
+        return res.status(201).json({message : "User created success.", user:createdUser});
 
     } catch (e) {
-        console.log(e);
-
         //hata var ise yazir ve dondur 
-        return res.json({ message: "User could not created." });
+        return res.status(400).json({ message: e.message, user:createdUser });
     }
 
 })
 // POST!! SIGNUP
 
+
+
+
+
+
 // POST!! SIGNIN
 router.post("/signin", async (req, res) => {
 
-    const { email, password } = req.body;
+    try{
+        const { email, password } = req.body;
 
     // email ile useri bul ve user degiskenine ata
     const user = await User.findOne({ email });
 
-    // girilen password ile user degiskeninin passwordunu karsılastır
-    const isPasswordCorrect = bcrypt.compare(password, user.password);
+    if(!user){
+        return res.status(404).json({ message: "This email not exist." });
+    }
+    
+    const isPasswordCorrect = bcrypt.compareSync(password,user.password)
 
-    // user bos ise veya passwordler ayni degil ise hata dondur
-    if (!user || !isPasswordCorrect) {
-        req.status(404).json({ message: "Wrong email or password." });
+    // girilen password ile user degiskeninin passwordunu karsılastır
+    // const isPasswordCorrect = bcrypt.compare(password, user.password);
+    
+
+     // user bos ise veya passwordler ayni degil ise hata dondur
+    if (!isPasswordCorrect) {
+        return res.status(404).json({ message: "Wrong password."});
     }
 
+    
+
+    // if(!isPasswordCorrect){
+    //     req.status(404).json({ message: "Wrong password" });
+    // }
+
     // diger durumlar saglanamz ise giris yap
-    return res.status(200).json({ message: "authentication successful" });
+    return res.status(200).json({ message: "authentication successful",user:user });
+
+    }catch(e){
+        return res.status(400).json({ message: e.message });
+    }
+    
 
 })
 // POST!! SIGNIN

@@ -6,7 +6,7 @@ import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 
 
-export default function Navbar1() {
+export default function Navbar1({user , setUser}) {
     return (
         // Navbar
         <Navbar expand="lg" className='bg-primary navbar-dark py-2 '>
@@ -57,9 +57,22 @@ export default function Navbar1() {
 
                     </Nav>
                     {/* nav buttons and scroll part*/}
-                    
-                        {/* sign in button */}
-                        <Nav.Link className='mx-2 btn btn-secondary px-2 py-1' href="/signin">Sing in </Nav.Link>
+
+                        {/* if user exist show sign in button else show sign out button */}
+
+                        {
+                            (localStorage.getItem("user")) 
+                            ? <Nav.Link onClick={(e)=>{
+                                localStorage.removeItem("user") 
+                                setUser(null);
+                            }
+                            }  className='mx-2 btn btn-secondary px-2 py-1'  href="/signin">Sign Out</Nav.Link> 
+
+                            : <Nav.Link  className='mx-2 btn btn-secondary px-2 py-1'  href="/signin">Sign in </Nav.Link> 
+                            
+                        }
+                       
+                        
             
                 </Navbar.Collapse>
                 {/* content container */}

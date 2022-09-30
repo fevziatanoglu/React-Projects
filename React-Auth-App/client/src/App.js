@@ -16,11 +16,12 @@ function App() {
   return (
     <BrowserRouter>
       {/* Routesin icinde olmayan elemanlar path ne olursa olsun ekranda gosterilir */}
-      <Navbar />
+      <Navbar user ={user} setUser={setUser} />
 
       <Routes>
+        
         {/* path / iken homescreeni goster  (exact sadece bu path varken gosterir) */}
-        <Route path='/' element={<HomeScreen />} exact></Route>
+        <Route path='/' element={<HomeScreen user={user} />} exact></Route>
         <Route path='/signin' element={<SignInScreen  setUser={setUser}/>} exact></Route>
         <Route path='/signup' element={<SignUpScreen />} exact></Route>
 
@@ -35,3 +36,7 @@ function App() {
 }
 
 export default App;
+
+
+
+

@@ -3,9 +3,10 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import FloatingLabel from 'react-bootstrap/FloatingLabel';
 import { useState } from 'react';
-import login from "../axios/index"
+import { login } from '../axios';
 
-export default function SignInScreen() {
+
+export default function SignInScreen({setUser}) {
 
   const [formData, setFormData] = useState({
     email: "",
@@ -21,7 +22,16 @@ export default function SignInScreen() {
         async (e) => {
           e.preventDefault();
 
-        await login(formData).then(response =>console.log(response)).catch(error => console.log(error));
+        await login(formData).then(response =>{
+          const user = response.data.user;
+          console.log(response.data.message);
+          console.log(user);
+          localStorage.setItem("user", JSON.stringify(user));
+          setUser(user);
+          window.location.pathname = "/"
+
+        }
+        ).catch(error => console.log(error.response.data.message));
          
         }
 
@@ -39,12 +49,12 @@ export default function SignInScreen() {
 
 
         {/* password input */}
-        <FloatingLabel controlId="floatingTextarea2" label="Password">
+        <FloatingLabel className='mb-2' controlId="floatingTextarea2" label="Password">
           <Form.Control onChange={(e) => setFormData({ ...formData, password: e.target.value })} type="password" placeholder="Password" />
           <Form.Text className="text-muted">
             <div className='mt-1 d-flex flex-row justify-content-center'>
               <div>If you don't have an account &nbsp;</div>
-              <a href='signup'>Sing Up</a>
+              <a href='signup'>Sign Up</a>
             </div>
           </Form.Text>
         </FloatingLabel>
@@ -61,7 +71,7 @@ export default function SignInScreen() {
 
 
         <Button className='mx-5' variant="primary" type="submit">
-          Sing in
+          Sign in
         </Button>
 
 
