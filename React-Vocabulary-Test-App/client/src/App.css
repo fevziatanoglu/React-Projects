@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+
 }
 
 .App-logo {
@@ -41,11 +42,13 @@
 .wordCard {
   transform-style: preserve-3d;
   transition: 1s ease-in-out;
+  /* min-height: 100px; */
 }
 
 .back-face , .front-face{
   /* position: absolute; */
-  
+ 
+  pointer-events: none;
   backface-visibility: hidden;
 }
 
@@ -55,4 +58,19 @@
 
 .flip{
   transform: rotateY(180deg);
+}
+
+.centered{
+  background-color: red;
+
+  text-align: center;
+
+  height: 80vh;
+  width: 95vw;
+
+  position: fixed;
+  top: 57%;
+  left: 50%;
+ 
+  transform: translate(-50%, -50%);
 }

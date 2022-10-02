@@ -5,13 +5,13 @@ import HomePage from './components/HomePage';
 import AddWordPage from './components/AddWordPage';
 import { useState } from 'react';
 import MyWords from './components/MyWords';
+import Test from './components/TestPage/Test';
 
 
 function App() {
 
   let [wordCards,setWordCards] = useState(
     (localStorage.getItem("wordCards")) ?JSON.parse(localStorage.getItem("wordCards")) : []  
-    // JSON.parse(localStorage.getItem("wordCards"))
   );
 
 
@@ -56,6 +56,7 @@ const removeCard = (id) =>{
     <Route path='/home' element={<HomePage/>}></Route>
     <Route path='/addword' element={<AddWordPage wordCards={wordCards} addNewCard={addNewCard} removeCard = {removeCard} />}></Route>
     <Route path='/mywords' element={<MyWords wordCards={wordCards}/>}></Route>
+    <Route path='/test' element={<Test wordCards={wordCards}/>}></Route>
 
     </Routes>
     

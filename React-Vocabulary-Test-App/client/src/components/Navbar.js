@@ -5,15 +5,17 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 
 function Header() {
   return (
-    <Navbar className='bg-primary navbar-dark d-felx flex-row justify-content-center sticky-top' expand="lg">
-      <Container  >
-        <Navbar.Brand className="fs-1 fw-bold" href="/home">Vocabulary App</Navbar.Brand>
+    <Navbar className='bg-primary navbar-dark  sticky-top' expand="lg">
+      <Container  className='align-self-center'>
+        <Navbar.Brand className=" rounded fs-1  fw-bold" href="/home">Vocabulary App</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
-            <Nav.Link href="/home">Home</Nav.Link>
-            <Nav.Link href="/addword">Add Word</Nav.Link>
-            <Nav.Link href="/mywords">My Words</Nav.Link>
+            <Nav.Link className='text-light fw-bold border border-2 rounded m-1 text-center' href="/home">Home</Nav.Link>
+            <Nav.Link className='text-light fw-bold border border-2 rounded m-1 text-center' href="/addword">Add Word</Nav.Link>
+            <Nav.Link className='text-light fw-bold border border-2 rounded m-1 text-center' href="/mywords">My Words</Nav.Link>
+            <Nav.Link className='text-light fw-bold border border-2 rounded m-1 text-center' href="/test">Test</Nav.Link>
+            <Nav.Link className='text-light fw-bold border border-2 rounded m-1 text-center' onClick={(e)=>{window.open("https://github.com/fevziatanoglu/React-Projects");}}>GitHub</Nav.Link>
 
             {/* <NavDropdown title="Dropdown" id="basic-nav-dropdown">
               <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>

@@ -4,16 +4,17 @@ export default function WordCardItem({wordCard}){
 
     let isTurn = 0;
 
-    const flipCard = (e)=>{
+    const flipCard = (element)=>{
         
-        e.target.classList.toggle("flip");
-        console.log(e.target)
+        element.classList.toggle("flip");
+        console.log(element)
+        
     }
 
     return(
-        <div onClick={(e)=>flipCard(e)} className="wordCard bg-light text-dark col-lg-2 col-5 text-center p-2 fs-2 fw-bold rounded border border-4 m-2 border-primary  p-2">
-                    <div className="front-face text-center bg-success">{wordCard.word}</div>
-                    <div className="back-face text-center bg-success">{wordCard.meaning}</div>
+        <div onClick={(e)=>flipCard(e.target)} className="wordCard bg-dark text-dark col-lg-3 col-5 justfiy-content-center  fs-2 fw-bold rounded border border-4 m-2 border-primary  p-2">
+                    <div className="front-face text-center rounded text-primary bg-secondary">{wordCard.word}</div>
+                    <div className="back-face text-center rounded text-light bg-primary">{wordCard.meaning}</div>
                 </div>
     )
 }
