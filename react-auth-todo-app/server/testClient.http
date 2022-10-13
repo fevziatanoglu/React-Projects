@@ -1,0 +1,48 @@
+POST http://localhost:5000/users/signup
+Content-Type: application/json
+
+{
+    "email":"fevzi@gmail.com",
+    "password":"123123",
+    "confirmPassword":"123123"
+}
+
+###
+
+POST http://localhost:5000/users/signin
+Content-Type: application/json
+
+{
+    "email":"fevzi@gmail.com",
+    "password":"123123"
+}
+
+###
+
+POST  http://localhost:5000/todo/addtodo
+Content-Type: application/json
+
+{
+    "text":"todo",
+    "email":"fevzi2@gmail.com"
+}
+
+
+###
+
+POST http://localhost:5000/todo/gettodo
+Content-Type: application/json
+
+{
+   "email":"fevzi2@gmail.com"
+}
+
+###
+
+POST  http://localhost:5000/todo/deletetodo
+Content-Type: application/json
+
+{
+   "id":"6344239e81be065c469f15c6",
+"user":"1234"
+}
