@@ -9,7 +9,7 @@ app.use(express.json());
 app.use(cors())
 
 app.listen(5000, () => {
-    mongoose.connect("mongodb+srv://fevzi:123123asd@mycluster.q7hwcfl.mongodb.net/?retryWrites=true&w=majority"
+    mongoose.connect("mongodb+srv://************@mycluster.q7hwcfl.mongodb.net/?retryWrites=true&w=majority"
         , { useUnifiedTopology:true,useNewUrlParser:true})
         .then(response => console.log("Server is running on port 5000"))
         .catch(error => console.log(error));

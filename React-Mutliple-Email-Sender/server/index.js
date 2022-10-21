@@ -81,7 +81,6 @@ app.use(express.json());
 
 
 
-// fvcpxsbppolbibkl
 
 
 app.post("/send", async (req, res) => {
@@ -101,6 +100,7 @@ app.post("/send", async (req, res) => {
         auth: { user: `${senderEmail.user}`, pass: `${senderEmail.pass}` }
     })
 
+    
     await transporter.sendMail(mailData)
         .then(data => {
             console.log("Email Send Success!")

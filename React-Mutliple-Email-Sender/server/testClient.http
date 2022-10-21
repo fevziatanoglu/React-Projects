@@ -1,9 +1,0 @@
-POST http://localhost:5000/send
-Content-Type: application/json
-
-{
-    "emails" :["fevziatan2@gmail.com","fevziatan3@gmail.com"],
-    "subject":"Test Mail 2",
-    "textMessage":"Yuruyemiyorum",
-    "senderEmail":{"user":"fevziatan3@gmail.com" , "pass":"fvcpxsbppolbibkl"}
-}
