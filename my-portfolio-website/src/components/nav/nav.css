@@ -1,0 +1,42 @@
+.nav{
+    display: flex;
+    justify-content: center;
+    
+    z-index: 2;
+    position: fixed;
+    left: 50%;
+    bottom: 0;
+    backdrop-filter: blur(1500px);
+}
+
+.nav-icons {
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+
+    padding: 1rem;
+
+    position: absolute;
+    bottom: 1rem;
+
+    width: 20rem;
+    background-color: rgba(70, 149, 10, 0.237);
+    border-radius: 12rem;
+    font-size: 2rem;
+}
+
+
+/* ================== Media Queries (Small Devices) ===================== */
+@media screen and (max-width:600px) {
+
+    /* .nav{
+        display: none;
+    }    */
+
+
+  
+  }
+  
+  /* ================== Media Queries (Small Devices) ===================== */

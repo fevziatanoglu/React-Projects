@@ -1,0 +1,100 @@
+
+.contact-container{
+    margin-top: 2rem;
+    /* margin-left: 1px; */
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap:5rem;
+}
+
+.contact-info{
+    
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+
+.content{
+    background: linear-gradient(    var(--color-primary-variant),var(--color-primary),transparent );
+    border-radius: 3rem;
+    border: 5px solid white;
+    padding: 3rem;
+    width: 15rem;
+}
+
+
+.item{
+    margin-top: 0.5rem;
+    font-size: 0.8rem;
+}
+
+.contact-email{
+    /* background-color: blue; */
+    /* background-color: var(--color-primary); */
+    /* border-radius: 3rem; */
+    /* border: 1px solid white; */
+    padding: 3rem;
+}
+
+
+form{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    justify-content: center;
+    align-items: center;
+    /* margin-bottom: 5rem; */
+}
+
+input , textarea{
+    width: 100%;
+    padding: 1rem;
+    background-color: transparent;
+    border: 2px solid white;
+    border-radius: 1rem;
+    font-weight: bold;
+    color: white;
+}
+
+.bottom-bar{
+    height: 10rem;
+}
+
+
+/* ================== Media Queries (Medium Devices) ===================== */
+@media screen and (max-width:1024px) {
+
+    .contact-container {
+        /* width: var(--container-width-md); */
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+    }
+
+
+}
+
+/* ================== Media Queries (Medium Devices) ===================== */
+
+
+
+
+
+/* ================== Media Queries (Small Devices) ===================== */
+@media screen and (max-width:600px) {
+    
+
+   
+
+    
+
+
+}
+
+/* ================== Media Queries (Small Devices) ===================== */
